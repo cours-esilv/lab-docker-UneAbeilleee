@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-: ${WS_BACK_URL:=http://localhost:8080}
+WS_BACK_URL=${WS_BACK_URL:=http://172.17.0.2:5000}
 
 echo "Will start Nginx with the following configuration:"
 echo "  - WS_BACK_URL : $WS_BACK_URL"
