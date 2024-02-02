@@ -1,3 +1,8 @@
-docker tag my-python-app:latest jsuisuneabeille/ml_ops_elies:latest
-docker login -u jsuisuneabeille -p password https://index.docker.io/v1/
+# Se connecter à Docker Hub avec l'option --password-stdin
+echo "<votre_mot_de_passe_docker_hub>" | docker login --username jsuisuneabeille --password-stdin
+
+# Taguer votre image avec le nouveau nom du référentiel Docker Hub
+docker tag my-python-app jsuisuneabeille/ml_ops_elies:latest
+
+# Pousser l'image taguée vers Docker Hub
 docker push jsuisuneabeille/ml_ops_elies:latest
