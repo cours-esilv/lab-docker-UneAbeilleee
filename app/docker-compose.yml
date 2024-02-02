@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    image: jsuisuneabeille/ml_ops_elies:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - CURRENT_ENVIRONMENT=production
+    volumes:
+      - ./backend-data:/app/data  
+    networks:
+      - mon_reseau  
+
+  frontend:
+    image: frontend:latest
+    ports:
+      - "8080:80"
+    environment:
+      - WS_BACK_URL=http://backend:5000
+    networks:
+      - mon_reseau 
+
+networks:
+  mon_reseau:
+    driver: bridge
